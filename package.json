@@ -1,0 +1,23 @@
+{
+  "name": "varmon",
+  "version": "1.0.0",
+  "description": "Monitoring your nodejs variables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdSab/varmon.git"
+  },
+  "keywords": [
+    "monitor",
+    "debuging"
+  ],
+  "author": "AbdSab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdSab/varmon/issues"
+  },
+  "homepage": "https://github.com/AbdSab/varmon#readme"
+}
