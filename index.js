@@ -21,4 +21,7 @@ io.on('connection', (socket)=>{
     varmon.start();
 });
 
+let x = 0;
+setInterval(()=>{toto.push(x++);}, 10000);
+
 server.listen(3030);
