@@ -17,7 +17,6 @@ toto.push(10);
 io.on('connection', (socket)=>{
     console.log("new" + socket.id);
     const varmon = new varmonBase(socket);
-    socket.send('variables', "asdasd");
     varmon.attach('toto', toto);
     varmon.start();
 });

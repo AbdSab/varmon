@@ -6,26 +6,51 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/sb-admin-2.min.css">
 </head>
 <body>
 
-    <div class="list">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="list">
 
+                </div>
+            </div>
+        </div>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script>
     const socket = io('localhost:3030');
     const listDom = document.querySelector('.list');
-    socket.on('variables', (_variables)=>{
-        console.log(_variables);
+    socket.on('message', (_variables)=>{
+        //console.log(_variables);
         drawVariables(_variables);
 
     });
     function drawVariables(variables){
-        //variables.forEach()
-        console.log(variables);
+        listDom.innerHTML = "";
+        for(let k in variables) {
+            console.log(variables);
+            const data = variables[k].map((data) => `<p>${data}</p>`);
+            const dom = `
+            <div class="card shadow mb-4">
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <h6 class="m-0 font-weight-bold text-primary">${k}</h6>
+                </a>
+                <div class="collapse show" id="collapseCardExample" style="">
+                    <div class="card-body">
+                        ${data}
+                    </div>
+                </div>
+            </div>
+            `;
+            listDom.innerHTML += dom;
+        }
     }
+
+
 </script>
 </body>
 </html>

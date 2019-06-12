@@ -1,6 +1,5 @@
 
 const varmon = function(socket){
-    this.socket = socket;
     this.variables = {};
     this.attach = (name, variable) => {
         this.variables[name] = variable;
@@ -11,7 +10,8 @@ const varmon = function(socket){
     };
 
     this.sendVariables = () => {
-        console.log(this.variables);
+        //console.log(this.variables);
+        socket.send(this.variables);
     }
 };
 
