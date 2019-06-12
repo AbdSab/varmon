@@ -1,23 +1,17 @@
 
-const varmon = function(server, io, fs){
-
-    this.server = server;
-    this.io = io;
-
-    this.listen = function(port){
-        const http = this.server.createServer(this.handler).listen(port);
-        this.io = this.io(http);
-        this.socketHandler();
+const varmon = function(socket){
+    this.socket = socket;
+    this.variables = {};
+    this.attach = (name, variable) => {
+        this.variables[name] = variable;
     };
 
-    this.handler = function(res, req){
-
+    this.start = () => {
+        setInterval(this.sendVariables,100)
     };
 
-    this.socketHandler = function(){
-        this.io.on('connection', function (socket) {
-            console.log("connected " + socket.id);
-        });
+    this.sendVariables = () => {
+        console.log(this.variables);
     }
 };
 

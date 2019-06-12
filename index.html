@@ -8,6 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-Hello
+
+    <div class="list">
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+    const socket = io('localhost:3030');
+    const listDom = document.querySelector('.list');
+    socket.on('variables', (_variables)=>{
+        console.log(_variables);
+        drawVariables(_variables);
+
+    });
+    function drawVariables(variables){
+        //variables.forEach()
+        console.log(variables);
+    }
+</script>
 </body>
 </html>
